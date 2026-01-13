@@ -1,59 +1,142 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+ # Job Portal Laravel Project
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Overview
 
-## About Laravel
+This is a simple **Job Portal application** built with Laravel. It allows:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* **Candidates** to upload resumes, add skills, and apply for jobs
+* **Recruiters** to post jobs, evaluate candidates, and view leaderboards
+* * **Reviwers** to review the application of candidate
+* **Automated skill evaluation** and score-based ranking
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Requirements
 
-## Learning Laravel
+* PHP >= 8.1
+* Composer
+* MySQL or SQLite
+* Node.js & npm (optional, for frontend assets)
+* Git (for version control)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Installation
 
-## Laravel Sponsors
+1. **Clone the repository**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+git clone https://github.com/yourusername/job-portal-laravel.git
+cd job-portal-laravel
+```
 
-### Premium Partners
+2. **Install PHP dependencies**
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+composer install
+```
 
-## Contributing
+3. **Install dependencies (if using frontend assets)**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+npm install
+npm run dev
+```
 
-## Code of Conduct
+4. **Copy environment file and configure**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+cp .env.example .env
+```
 
-## Security Vulnerabilities
+Update database credentials in `.env`:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=your_db_name
+DB_USERNAME=your_db_user
+DB_PASSWORD=your_db_password
+```
 
-## License
+5. **Generate application key**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan key:generate
+```
+
+6. **Run migrations**
+
+```bash
+php artisan migrate // or can do without migration too
+```
+
+7. **Serve the application**
+
+```bash
+php artisan serve
+```
+
+The app will be available at [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+---
+
+## Usage
+
+### Recruiter
+
+* Login as **recruiter**
+* Post jobs and view candidate applications
+* View **Leaderboard** filtered by skills
+* Review candidate technical and HR scores
+
+### Candidate
+
+* Login as **candidate**
+* Upload resume and add skills
+* Apply for jobs and track applications
+
+---
+
+## GitHub Workflow
+
+1. Stage changes:
+
+```bash
+git add .
+```
+
+2. Commit with a descriptive message:
+
+```bash
+git commit -m "Added feature XYZ or Fixed bug ABC"
+```
+
+3. Push to repository:
+
+```bash
+git push
+```
+
+> ✅ Tip: Only push your project files, **exclude `.env`** and storage files if not needed.
+
+---
+
+## Notes
+
+* `.env` contains sensitive credentials. **Do not push it to GitHub**
+* After cloning, always run `composer install` and `npm install`
+* Leaderboard and skill evaluation are implemented in `LeaderboardController` and candidate/job models
+
+---
+
+## Optional
+
+If you want to reset database:
+
+```bash
+php artisan migrate:fresh
+```
+
+> This will drop all tables and re-run migrations
