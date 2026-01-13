@@ -6,7 +6,7 @@ This is a simple **Job Portal application** built with Laravel. It allows:
 
 * **Candidates** to upload resumes, add skills, and apply for jobs
 * **Recruiters** to post jobs, evaluate candidates, and view leaderboards
-* * **Reviwers** to review the application of candidate
+* **Reviwers** to review the application of candidate
 * **Automated skill evaluation** and score-based ranking
 
 ---
