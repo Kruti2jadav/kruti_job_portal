@@ -10,6 +10,11 @@ This is a simple **Job Portal application** built with Laravel. It allows:
 * **Automated skill evaluation** and score-based ranking
 
 ---
+##Flow of website 
+Login-> recruiter -> post job/leaderboard / select candidate 
+Login-> candidate -> update profile -> apply job 
+Login -> tech reviewer -> review 
+Login -> hr reviewer -> review
 
 ## Requirements
 
